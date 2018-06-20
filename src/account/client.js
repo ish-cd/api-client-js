@@ -2,7 +2,7 @@
 
 let apiClient;
 
-class DrushIOAccount {
+class AccountIsh {
 
   constructor(client, data = {}) {
     apiClient = client;
@@ -36,4 +36,4 @@ class DrushIOAccount {
   }
 }
 
-export default DrushIOAccount;
+export default AccountIsh;

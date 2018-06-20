@@ -2,7 +2,7 @@
 
 let apiClient;
 
-class DrushIOApiToken {
+class ApiTokenIsh {
 
   constructor(client, identifier, data = {}) {
     apiClient = client;
@@ -24,4 +24,4 @@ class DrushIOApiToken {
   }
 }
 
-export default DrushIOApiToken;
+export default ApiTokenIsh;

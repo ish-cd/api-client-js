@@ -2,7 +2,7 @@
 
 let apiClient;
 
-class DrushIOCredential {
+class CredentialIsh {
 
   constructor(client, identifier, data = {}) {
     apiClient = client;
@@ -21,4 +21,4 @@ class DrushIOCredential {
   }
 }
 
-export default DrushIOCredential;
+export default CredentialIsh;

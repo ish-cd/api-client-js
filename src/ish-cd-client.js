@@ -14,7 +14,7 @@ import SlackIntegrationsClient from './integrations/slack/client';
 class IshCD extends ClientBase {
 
   /**
-   * Instantiates a new drush.io API client.
+   * Instantiates a new Ish CD API client.
    *
    * @param {String} token
    * @param {Object} options
@@ -31,21 +31,21 @@ class IshCD extends ClientBase {
   }
 
   /**
-   * Returns a drush.io account API client.
-   * @returns {DrushIOAccount}
+   * Returns an Ish CD account API client.
+   * @returns {AccountIsh}
    */
   account() {
     return new AccountClient(this);
   }
 
   /**
-   * Returns a drush.io API token API client.
+   * Returns an Ish CD API token API client.
    *
    * Note: for security reasons, API tokens cannot be managed through the API,
    * you must be authenticated in the browser to use this client.
    *
    * @param {String} identifier
-   * @returns {DrushIOApiToken|DrushIOApiTokens}
+   * @returns {ApiTokenIsh|ApiTokensIsh}
    */
   apiTokens(identifier) {
     if (identifier) {
@@ -57,10 +57,10 @@ class IshCD extends ClientBase {
   }
 
   /**
-   * Returns a drush.io integration API client.
+   * Returns an Ish CD integration API client.
    * @param {String} type
    * @param {*} identifier
-   * @returns {DrushIOSlackIntegration|DrushIOSlackIntegrations}
+   * @returns {SlackIntegrationIsh|SlackIntegrationsIsh}
    */
   integrations(type, identifier) {
     if (type === 'slack') {
@@ -77,9 +77,9 @@ class IshCD extends ClientBase {
   }
 
   /**
-   * Returns a drush.io credential API client.
+   * Returns an Ish CD credential API client.
    * @param {String} identifier
-   * @returns {DrushIOCredential|DrushIOCredentials}
+   * @returns {CredentialIsh|CredentialsIsh}
    */
   credentials(identifier) {
     if (identifier) {
@@ -91,10 +91,10 @@ class IshCD extends ClientBase {
   }
 
   /**
-   * Returns a drush.io project API client.
+   * Returns an Ish CD project API client.
    *
    * @param {String} identifier
-   * @returns {DrushIOProject|DrushIOProjects}
+   * @returns {ProjectIsh|ProjectsIsh}
    */
   projects(identifier) {
     if (identifier) {

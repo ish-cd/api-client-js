@@ -2,7 +2,7 @@
 
 let apiClient;
 
-class DrushIOSlackIntegration {
+class SlackIntegrationIsh {
 
   constructor(client, identifier, data = {}) {
     apiClient = client;
@@ -27,4 +27,4 @@ class DrushIOSlackIntegration {
 
 }
 
-export default DrushIOSlackIntegration;
+export default SlackIntegrationIsh;
