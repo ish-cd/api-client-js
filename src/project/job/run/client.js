@@ -4,7 +4,7 @@ import JobClient from '../client';
 
 let apiClient;
 
-class DrushIORun {
+class RunIsh {
 
   constructor(client, project, job, identifier, data = {}) {
     apiClient = client;
@@ -31,4 +31,4 @@ class DrushIORun {
 
 }
 
-export default DrushIORun;
+export default RunIsh;
