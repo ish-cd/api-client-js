@@ -8,7 +8,7 @@ import JobClient from './job/client';
 
 let apiClient;
 
-class DrushIOProject {
+class ProjectIsh {
 
   constructor(client, identifier, data = {}) {
     apiClient = client;
@@ -73,4 +73,4 @@ class DrushIOProject {
 
 }
 
-export default DrushIOProject;
+export default ProjectIsh;

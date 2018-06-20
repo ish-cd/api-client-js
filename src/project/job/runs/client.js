@@ -1,10 +1,10 @@
 'use strict';
 
-import DrushIORun from '../run/client';
+import RunIsh from '../run/client';
 
 let apiClient;
 
-class DrushIORuns {
+class RunsIsh {
 
   constructor(client, project, job) {
     apiClient = client;
@@ -22,7 +22,7 @@ class DrushIORuns {
             apiClient.get(`/projects/${this.project.identifier}/jobs/${this.job.identifier}/runs/${response.body.id}`).then((res) => {
               if (['error', 'complete'].indexOf(res.body.status) >= 0) {
                 clearInterval(intervalTimer);
-                resolve(new DrushIORun(apiClient, this.project, this.job, res.body.id, res.body))
+                resolve(new RunIsh(apiClient, this.project, this.job, res.body.id, res.body))
               }
             }).catch((err) => {
               clearInterval(intervalTimer);
@@ -31,7 +31,7 @@ class DrushIORuns {
           }, 5000);
         }
         else {
-          resolve(new DrushIORun(apiClient, this.project, this.job, response.body.id, response.body));
+          resolve(new RunIsh(apiClient, this.project, this.job, response.body.id, response.body));
         }
       }).catch((err) => {
         reject(err);
@@ -41,4 +41,4 @@ class DrushIORuns {
 
 }
 
-export default DrushIORuns;
+export default RunsIsh;

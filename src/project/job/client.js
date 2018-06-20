@@ -1,11 +1,11 @@
 'use strict';
 
-import DrushIORun from './run/client';
-import DrushIORuns from './runs/client';
+import RunIsh from './run/client';
+import RunsIsh from './runs/client';
 
 let apiClient;
 
-class DrushIOJob {
+class JobIsh {
 
   constructor(client, project, identifier, data = {}) {
     apiClient = client;
@@ -48,14 +48,14 @@ class DrushIOJob {
 
   runs(identifier) {
     if (identifier) {
-      return new DrushIORun(apiClient, this.project, this, identifier);
+      return new RunIsh(apiClient, this.project, this, identifier);
     }
     else {
-      return new DrushIORuns(apiClient, this.project, this);
+      return new RunsIsh(apiClient, this.project, this);
     }
   }
 
 }
 
 
-export default DrushIOJob;
+export default JobIsh;

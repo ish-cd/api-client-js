@@ -1,10 +1,10 @@
 'use strict';
 
-import DrushIOCredential from '../credential/client';
+import CredentialIsh from '../credential/client';
 
 let apiClient;
 
-class DrushIOCredentials {
+class CredentialsIsh {
 
   constructor(client, data = {}) {
     apiClient = client;
@@ -23,7 +23,7 @@ class DrushIOCredentials {
   create(details) {
     return new Promise((resolve, reject) => {
       apiClient.post('/credentials', details).then((response) => {
-        resolve(new DrushIOCredential(apiClient, response.body.id, response.body));
+        resolve(new CredentialIsh(apiClient, response.body.id, response.body));
       }).catch((err) => {
         reject(err);
       });
@@ -34,7 +34,7 @@ class DrushIOCredentials {
     return new Promise((resolve, reject) => {
       apiClient.get('/credentials').then((response) => {
         resolve(response.body.map((credential) => {
-          return new DrushIOCredential(apiClient, credential.id, credential);
+          return new CredentialIsh(apiClient, credential.id, credential);
         }));
       }).catch((err) => {
         reject(err);
@@ -44,4 +44,4 @@ class DrushIOCredentials {
 
 }
 
-export default DrushIOCredentials;
+export default CredentialsIsh;

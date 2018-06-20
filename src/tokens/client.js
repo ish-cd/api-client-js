@@ -1,10 +1,10 @@
 'use strict';
 
-import DrushIOApiToken from '../token/client';
+import ApiTokenIsh from '../token/client';
 
 let apiClient;
 
-class DrushIOApiTokens {
+class ApiTokensIsh {
 
   constructor(client, data = {}) {
     apiClient = client;
@@ -24,7 +24,7 @@ class DrushIOApiTokens {
       apiClient._getCsrfToken().then((response) => {
         return apiClient.post('/tokens', details, response.body);
       }).then((response) => {
-        resolve(new DrushIOApiToken(apiClient, response.body.id, response.body));
+        resolve(new ApiTokenIsh(apiClient, response.body.id, response.body));
       }).catch((err) => {
         reject(err);
       });
@@ -35,7 +35,7 @@ class DrushIOApiTokens {
     return new Promise((resolve, reject) => {
       apiClient.get('/tokens?_format=json').then((response) => {
         resolve(response.body.map((token) => {
-          return new DrushIOApiToken(apiClient, token.id, token);
+          return new ApiTokenIsh(apiClient, token.id, token);
         }));
       }).catch((err) => {
         reject(err);
@@ -45,4 +45,4 @@ class DrushIOApiTokens {
 
 }
 
-export default DrushIOApiTokens;
+export default ApiTokensIsh;

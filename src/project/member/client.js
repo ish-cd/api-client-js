@@ -2,7 +2,7 @@
 
 let apiClient;
 
-class DrushIOMember {
+class MemberIsh {
 
   constructor(client, project, identifier, data = {}) {
     apiClient = client;
@@ -56,4 +56,4 @@ class DrushIOMember {
 
 }
 
-export default DrushIOMember;
+export default MemberIsh;
