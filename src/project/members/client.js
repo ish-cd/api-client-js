@@ -1,10 +1,10 @@
 'use strict';
 
-import DrushIOMember from '../member/client';
+import MemberIsh from '../member/client';
 
 let apiClient;
 
-class DrushIOMembers {
+class MembersIsh {
 
   constructor(client, project) {
     apiClient = client;
@@ -22,7 +22,7 @@ class DrushIOMembers {
   create(details) {
     return new Promise((resolve, reject) => {
       apiClient.post(`/projects/${this.project.identifier}/members`, details).then((response) => {
-        resolve(new DrushIOMember(apiClient, this.project, response.body.id, response.body));
+        resolve(new MemberIsh(apiClient, this.project, response.body.id, response.body));
       }).catch((err) => {
         reject(err);
       });
@@ -33,7 +33,7 @@ class DrushIOMembers {
     return new Promise((resolve, reject) => {
       apiClient.get(`/projects/${this.project.identifier}/members`).then((response) => {
         resolve(response.body.map((member) => {
-          return new DrushIOMember(apiClient, this.project, member.id, member);
+          return new MemberIsh(apiClient, this.project, member.id, member);
         }));
       }).catch((err) => {
         reject(err);
@@ -43,4 +43,4 @@ class DrushIOMembers {
 
 }
 
-export default DrushIOMembers;
+export default MembersIsh;

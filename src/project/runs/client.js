@@ -1,10 +1,10 @@
 'use strict';
 
-import DrushIORun from '../job/run/client';
+import RunIsh from '../job/run/client';
 
 let apiClient;
 
-class DrushIORuns {
+class RunsIsh {
 
   constructor(client, project) {
     apiClient = client;
@@ -15,7 +15,7 @@ class DrushIORuns {
     return new Promise((resolve, reject) => {
       apiClient.get(`/projects/${this.project.identifier}/runs`, params).then((response) => {
         resolve(response.body.map((run) => {
-          return new DrushIORun(apiClient, this.project, null, run.id, run);
+          return new RunIsh(apiClient, this.project, null, run.id, run);
         }));
       }).catch((err) => {
         reject(err);
@@ -25,4 +25,4 @@ class DrushIORuns {
 
 }
 
-export default DrushIORuns;
+export default RunsIsh;

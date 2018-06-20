@@ -1,10 +1,10 @@
 'use strict';
 
-import DrushIOJob from '../job/client';
+import JobIsh from '../job/client';
 
 let apiClient;
 
-class DrushIOJobs {
+class JobsIsh {
 
   constructor(client, project) {
     apiClient = client;
@@ -12,7 +12,7 @@ class DrushIOJobs {
   }
 
   /**
-   * Creates a new drush.io job on the given project.
+   * Creates a new Ish CD job on the given project.
    *
    * @param {Object} details
    * @param {String} details.label
@@ -25,7 +25,7 @@ class DrushIOJobs {
   create(details) {
     return new Promise((resolve, reject) => {
       apiClient.post(`/projects/${this.project.identifier}/jobs`, details).then((response) => {
-        resolve(new DrushIOJob(apiClient, this.project, response.body.id, response.body));
+        resolve(new JobIsh(apiClient, this.project, response.body.id, response.body));
       }).catch((err) => {
         reject(err);
       });
@@ -36,7 +36,7 @@ class DrushIOJobs {
     return new Promise((resolve, reject) => {
       apiClient.get(`/projects/${this.project.identifier}/jobs`).then((response) => {
         resolve(response.body.map((job) => {
-          return new DrushIOJob(apiClient, this.project, job.id, job);
+          return new JobIsh(apiClient, this.project, job.id, job);
         }));
       }).catch((err) => {
         reject(err);
@@ -46,4 +46,4 @@ class DrushIOJobs {
 
 }
 
-export default DrushIOJobs;
+export default JobsIsh;
