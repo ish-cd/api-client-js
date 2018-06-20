@@ -1,6 +1,6 @@
 'use strict';
 
-import ClientBase from './drush-io-client-base';
+import ClientBase from './ish-cd-client-base';
 import AccountClient from './account/client';
 import ApiTokenClient from './token/client';
 import ApiTokensClient from './tokens/client';
@@ -11,7 +11,7 @@ import ProjectsClient from './projects/client';
 import SlackIntegrationClient from './integration/slack/client';
 import SlackIntegrationsClient from './integrations/slack/client';
 
-class DrushIO extends ClientBase {
+class IshCD extends ClientBase {
 
   /**
    * Instantiates a new drush.io API client.
@@ -24,7 +24,7 @@ class DrushIO extends ClientBase {
    */
   constructor(token, options = {}) {
     const version = options.version || 'v1',
-          host = options.host || 'https://api.drush.io',
+          host = options.host || 'https://api.ish-cd.com',
           basePath = options.basePath || '';
 
     super(token, host, basePath + '/', version);
@@ -107,4 +107,4 @@ class DrushIO extends ClientBase {
 
 }
 
-export default DrushIO;
+export default IshCD;

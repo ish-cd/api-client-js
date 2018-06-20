@@ -1,6 +1,6 @@
 'use strict';
 
-import DrushIOClient from '../../src/drush-io-client';
+import ClientIsh from '../../src/ish-cd-client';
 import AccountClient from '../../src/account/client';
 import ApiTokenClient from '../../src/token/client';
 import ApiTokensClient from '../../src/tokens/client';
@@ -11,10 +11,10 @@ import ProjectsClient from '../../src/projects/client';
 import SlackIntegrationClient from '../../src/integration/slack/client';
 import SlackIntegrationsClient from '../../src/integrations/slack/client';
 
-describe('drush.io', () => {
+describe('Ish CD', () => {
 
   describe('API Client', () => {
-    let client = new DrushIOClient();
+    let client = new ClientIsh();
 
     it('returns account client', () => {
       expect(client.account()).to.be.instanceOf(AccountClient);
